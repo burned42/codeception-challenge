@@ -4,5 +4,8 @@
     },
     "require": {
         "php": "~7.0"
+    },
+    "require-dev": {
+        "codeception/codeception": "^3.0"
     }
 }
