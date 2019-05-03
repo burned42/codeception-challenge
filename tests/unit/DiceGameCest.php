@@ -1,7 +1,7 @@
 <?php
 
-use App\Dice;
 use App\DiceGame;
+use App\DiceInterface;
 use Codeception\Example;
 use Codeception\Stub\Expected;
 use Codeception\Util\Stub;
@@ -35,9 +35,16 @@ class DiceGameCest
     public function testExceptionIfNotAllConstructorParametersAreDice(UnitTester $I): void
     {
         $I->expectThrowable(
-            new InvalidArgumentException('array elements should be of type '.Dice::class),
+            new InvalidArgumentException('array elements should be of type '.DiceInterface::class),
             static function () {
-                new DiceGame([new Dice(), new Dice(), new Dice(), 1, 2, 3]);
+                new DiceGame([
+                    Stub::makeEmpty(DiceInterface::class),
+                    Stub::makeEmpty(DiceInterface::class),
+                    Stub::makeEmpty(DiceInterface::class),
+                    1,
+                    2,
+                    3
+                ]);
             }
         );
     }
@@ -87,8 +94,8 @@ class DiceGameCest
     {
         $dice = [];
         foreach ($results as $result) {
-            $dice[] = Stub::make(
-                Dice::class,
+            $dice[] = Stub::makeEmpty(
+                DiceInterface::class,
                 ['roll' => Expected::once($result)]
             );
         }
