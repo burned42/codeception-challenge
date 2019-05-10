@@ -18,10 +18,10 @@ The rules are as follows:
     - three pairs: 800 points
     - straight: 1200 points
 
-You will find a class for the dice and a class for the game with some
-method stubs. Now you should install codeception, bootstrap it and
-start writing some unit tests and implement the logic like described
-above.
+You will find an interface for the dice and an interface for the game
+with some methods declared. Now you should install codeception,
+bootstrap it and start writing some unit tests and implement the logic
+like described above.
 
 [1]: https://github.com/burned42/codeception-talk
 [2]: http://codingdojo.org/kata/Greed/
